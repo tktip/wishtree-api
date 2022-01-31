@@ -1,0 +1,14 @@
+# Which architecture to build - see $(ALL_ARCH) for options.
+ARCH ?= amd64
+
+# The binary to build (just the basename).
+BIN := wishtree-api
+
+# This repo's root import path (under GOPATH).
+PKG := github.com/tktip/wishtree-api
+
+# Where to push the docker image.
+REGISTRY ?= replacename
+
+# directories which hold app source (tests are run from these directories)
+SRC_DIRS := cmd pkg internal

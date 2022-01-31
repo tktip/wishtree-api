@@ -1,0 +1,75 @@
+image: golang:1.17.6
+
+pipelines:
+  tags:
+    "*":
+      - step:
+          caches:
+            - docker
+          script:
+            - source bitbucket-pipelines-go.sh
+            - cd ${IMPORT_PATH}
+            - docker login $REG_HOST --username $REG_USERNAME --password $REG_PASSWORD
+            - TAG=true make install-tools lint-update test push
+  branches:
+    "*":
+      - step:
+          caches:
+            - docker
+          script:
+            - source bitbucket-pipelines-go.sh
+            - cd ${IMPORT_PATH}
+            - make install-tools lint-update test build
+
+    master:
+      - step:
+          caches:
+            - docker
+          script:
+            - source bitbucket-pipelines-go.sh
+            - cd ${IMPORT_PATH}
+            - docker login $REG_HOST --username $REG_USERNAME --password $REG_PASSWORD
+            - PROD=true make install-tools lint-update test push
+
+    "hotfix/*":
+      - step:
+          caches:
+            - docker
+          script:
+            - source bitbucket-pipelines-go.sh
+            - cd ${IMPORT_PATH}
+            - docker login $REG_HOST --username $REG_USERNAME --password $REG_PASSWORD
+            - HOTFIX=true make install-tools lint-update test push
+
+    "bugfix/*":
+      - step:
+          caches:
+            - docker
+          script:
+            - source bitbucket-pipelines-go.sh
+            - cd ${IMPORT_PATH}
+            - docker login $REG_HOST --username $REG_USERNAME --password $REG_PASSWORD
+            - BUGFIX=true make install-tools lint-update test push
+
+    "bug/*":
+      - step:
+          caches:
+            - docker
+          script:
+            - source bitbucket-pipelines-go.sh
+            - cd ${IMPORT_PATH}
+            - docker login $REG_HOST --username $REG_USERNAME --password $REG_PASSWORD
+            - BUGFIX=true make install-tools lint-update test push
+
+    "feature/*":
+      - step:
+          caches:
+            - docker
+          script:
+            - source bitbucket-pipelines-go.sh
+            - cd ${IMPORT_PATH}
+            - docker login $REG_HOST --username $REG_USERNAME --password $REG_PASSWORD
+            - FEATURE=true make install-tools lint-update test push
+
+options:
+  docker: true

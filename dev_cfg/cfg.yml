@@ -1,0 +1,25 @@
+debug: true
+logLevel: debug
+
+adminUsers:
+  - username: ADMIN_USER_1_USERNAME
+    password: ADMIN_USER_1_PASSWORD
+  - username: ADMIN_USER_X_USERNAME
+    password: ADMIN_USER_X_PASSWORD
+
+db:
+  url: DB_IP:DB_PORT
+  username: DB_USERNAME
+  password: DB_PASSWORD
+  name: DB_DATABASE_NAME
+
+tokenPrivatekeyPath: ROOT_OR_MOUNTED_FOLDER_NAME/token_privatekey.key
+tokenPublickeyPath: ROOT_OR_MOUNTED_FOLDER_NAME/token_publickey.pub
+
+tokenConfig:
+  tokenName: wishtree_authtoken
+  durationHours: 720
+  path: ""
+  domain: ""
+  secure: true
+  httpOnly: true
