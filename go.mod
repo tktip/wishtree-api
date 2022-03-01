@@ -7,9 +7,9 @@ require (
 	github.com/gin-gonic/gin v1.5.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/uuid v1.2.0
-	github.com/haraldfw/cfger v0.0.0-20190806095849-dff35df72a8f
 	github.com/jmoiron/sqlx v1.3.3
 	github.com/sirupsen/logrus v1.4.2
+	github.com/tktip/cfger v0.0.0-20201002114552-9be0c6d6b3ea
 	gopkg.in/go-playground/validator.v9 v9.30.2
 )
 
@@ -35,4 +35,5 @@ require (
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
+	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 )

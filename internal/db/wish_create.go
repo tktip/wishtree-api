@@ -79,7 +79,7 @@ func ArchiveAndClearOldestActiveWish(tx sqlx.Tx) (archivedWishID int, err error)
 	row = tx.QueryRowx(`
 		SELECT TOP 1 id AS wishId, text, author, zipCode, createdAt, x, y
 		FROM wish
-		WHERE isArchived = 0 AND isHidden = 0 AND text IS NOT NULL
+		WHERE isArchived = 0 AND text IS NOT NULL
 		ORDER BY wish.createdAt ASC
 	`)
 
@@ -97,7 +97,7 @@ func ArchiveAndClearOldestActiveWish(tx sqlx.Tx) (archivedWishID int, err error)
 	}
 
 	createWishCopyQuery := `INSERT INTO wish (
-		x, y, text, author, zipCode, createdAt, category_id, isPhysical, isArchived
+		x, y, text, author, zipCode, createdAt, category_id, isArchived
 	) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)`
 
 	_, err = tx.Exec(createWishCopyQuery,
@@ -108,7 +108,6 @@ func ArchiveAndClearOldestActiveWish(tx sqlx.Tx) (archivedWishID int, err error)
 		oldestWish.ZipCode,
 		oldestWish.CreatedAt,
 		oldestWish.CategoryID,
-		oldestWish.IsPhysical,
 	)
 
 	err = ClearWishByID(tx, oldestWish.ID)

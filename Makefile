@@ -148,14 +148,8 @@ watch-tests: watch-test
 watch-test:
 	reflex --start-service=true -r '\.go$$' make test
 
-watch-doc:
-	reflex --start-service=true -r '(\.md)|(_title)$$' make generate-doc run
-
 watch-all:
-	reflex --start-service=true -r '((\.md)|(_title)|(\.go))$$' -R '/resources.go$$' make test generate-doc run
-
-generate-doc:
-	./build/generate-doc.sh
+	reflex --start-service=true -r '((\.md)|(_title)|(\.go))$$' -R '/resources.go$$' make test run
 
 bin-clean:
 	rm -rf .go bin

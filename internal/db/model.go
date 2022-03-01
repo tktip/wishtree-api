@@ -14,9 +14,7 @@ type Wish struct {
 	CategoryID          *int       `json:"categoryId" db:"categoryId"`
 	CategoryName        *string    `json:"categoryName" db:"categoryName"`
 	CategoryDescription *string    `json:"categoryDescription" db:"categoryDescription"`
-	IsPhysical          bool       `json:"isPhysical" db:"isPhysical"`
 	IsArchived          bool       `json:"isArchived" db:"isArchived"`
-	IsHidden            bool       `json:"isHidden" db:"isHidden"`
 }
 
 // Category represents a category for a wish

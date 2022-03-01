@@ -34,9 +34,6 @@ github.com/golang/protobuf/proto
 # github.com/google/uuid v1.2.0
 ## explicit
 github.com/google/uuid
-# github.com/haraldfw/cfger v0.0.0-20190806095849-dff35df72a8f
-## explicit
-github.com/haraldfw/cfger
 # github.com/jmoiron/sqlx v1.3.3
 ## explicit; go 1.10
 github.com/jmoiron/sqlx
@@ -66,6 +63,9 @@ github.com/modern-go/reflect2
 github.com/sirupsen/logrus
 # github.com/stretchr/testify v1.6.1
 ## explicit; go 1.13
+# github.com/tktip/cfger v0.0.0-20201002114552-9be0c6d6b3ea
+## explicit; go 1.13
+github.com/tktip/cfger
 # github.com/ugorji/go/codec v1.1.7
 ## explicit
 github.com/ugorji/go/codec
@@ -114,3 +114,6 @@ gopkg.in/go-playground/validator.v9
 # gopkg.in/yaml.v2 v2.3.0
 ## explicit
 gopkg.in/yaml.v2
+# gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+## explicit
+gopkg.in/yaml.v3

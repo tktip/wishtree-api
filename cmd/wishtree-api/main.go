@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/haraldfw/cfger"
 	"github.com/sirupsen/logrus"
+	"github.com/tktip/cfger"
 	"github.com/tktip/wishtree-api/internal/api"
 	"github.com/tktip/wishtree-api/internal/version"
 )

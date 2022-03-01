@@ -9,8 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
-	"github.com/haraldfw/cfger"
 	"github.com/sirupsen/logrus"
+	"github.com/tktip/cfger"
 	"github.com/tktip/wishtree-api/internal/db"
 	v "gopkg.in/go-playground/validator.v9"
 )

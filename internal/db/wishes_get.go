@@ -99,7 +99,7 @@ func (c *Connector) GetAllWishes() (wishes []Wish, err error) {
 			category.id AS categoryId, category.name AS categoryName,
 			category.description AS categoryDescription
 		FROM wish	LEFT JOIN category ON (category.id = wish.category_id) 
-		WHERE isArchived = 0 AND isHidden = 0
+		WHERE isArchived = 0
 		ORDER BY wish.createdAt DESC, wish.id DESC`
 
 	var rows *sqlx.Rows
@@ -130,7 +130,7 @@ func GetNumberOfTakenWishes(tx sqlx.Tx) (numberOfWishes int, err error) {
 	row = tx.QueryRowx(`
 		SELECT COUNT(*)
 		FROM wish
-		WHERE isArchived = 0 AND text IS NOT NULL AND isHidden = 0
+		WHERE isArchived = 0 AND text IS NOT NULL
 	`)
 
 	err = row.Err()
@@ -156,12 +156,9 @@ func (c *Connector) GetAllTreeWishCounts() (wishCounts TreeWishCounts, err error
 		return
 	}
 
-	shownTakenWishesQuery := `SELECT COUNT(*) FROM wish
-		WHERE isArchived = 0 AND text IS NOT NULL AND isHidden = 0`
-	totalWishesQuery := `SELECT COUNT(*) FROM wish
-		WHERE isArchived = 0 AND isHidden = 0`
-	archivedWishesQuery := `SELECT COUNT(*) FROM wish
-		WHERE isArchived = 1`
+	shownTakenWishesQuery := `SELECT COUNT(*) FROM wish WHERE isArchived = 0 AND text IS NOT NULL`
+	totalWishesQuery := `SELECT COUNT(*) FROM wish WHERE isArchived = 0`
+	archivedWishesQuery := `SELECT COUNT(*) FROM wish WHERE isArchived = 1`
 
 	shownTakenWishes, err := queryCount(*conn, shownTakenWishesQuery)
 	if err != nil {

@@ -14,8 +14,6 @@ func ClearWishByID(tx sqlx.Tx, wishID int) (err error) {
 			author = NULL,
 			category_id = NULL,
 			createdAt = NULL,
-			isPhysical = 0,
-			isHidden = 0,
 			isArchived = 0
 		WHERE id = ?`
 
